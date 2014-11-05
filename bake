@@ -1,0 +1,5 @@
+#!/bin/bash
+arm-none-eabi-gcc -I. -fno-common -O0 -g -mcpu=cortex-m0 -mthumb -c -o main
+arm-none-eabi-ld -v -TSTM32L152xB.ld -nostartfiles -o demo.elf main
+arm-none-eabi-objcopy -Obinary demo.elf demo.bin
+openocd -f /usr/share/openocd/scripts/board/stm32ldiscovery.cfg
